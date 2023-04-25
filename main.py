@@ -16,12 +16,12 @@ def parse_html(file) -> list:
 
 
 def create_log_txt(list_valores, name_file):
+
+    
     with open(name_file, "w") as file:
         for valores in list_valores:
             for linha in valores:
-
                 file.write(linha)
-            file.write("\n\t\tNOVA IMPRESSÃO\n\n")
 
         
 def organizar_impressao(lista_valores):
@@ -50,24 +50,20 @@ def remove_text(text,padrao=";",char_remove=""):
 def informacoes_uteis(lista_valores):
     lista = []
     temp = []
-    indiceis_uteis = (0,2,6,8,16,18,30,56,60,72)
+    indiceis_uteis = (2,6,18,32,62)
     for valores in lista_valores:
-        for indice,valor in enumerate(valores):
-            if indice in indiceis_uteis:    
-                v = valor.rstrip('&nbsp')
+        for indice,valor in enumerate(valores):       
+            v = valor.rstrip('&nbsp')
+            
+            if indice in indiceis_uteis:
                 temp.append(v)
-                # print(f"{indice} : {valor.rstrip('&nbsp')}")
+
         lista.append(temp[:])
         temp.clear()
     return lista
 
 if __name__ == "__main__":
+    keys = ["nome_maquina","nome","ta"]
     conteudo = parse_html("RIPLOG.HTML")
     lista_impressao = organizar_impressao(conteudo)
     lista = informacoes_uteis(lista_impressao)
-    dados = dict()
-    for indice,valor in enumerate(lista):
-        dados[f"{indice}"] = valor
-
-
-    print(dados["0"])
