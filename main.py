@@ -14,10 +14,7 @@ def parse_html(file) -> list:
                 linhas.append(t)
     return linhas
 
-
-def create_log_txt(list_valores, name_file):
-
-    
+def create_log_txt(list_valores, name_file):    
     with open(name_file, "w") as file:
         for valores in list_valores:
             for linha in valores:
