@@ -1,7 +1,4 @@
-from main import (
-    parse_html,organizar_impressao,
-    informacoes_uteis)
-from tkinter import Tk,mainloop,Label
+from tkinter import Tk,Label
 from setings import HEIGHT,WIDTH
 
 
