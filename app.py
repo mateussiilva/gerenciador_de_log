@@ -1,35 +1,18 @@
 from main import (
     parse_html,organizar_impressao,
     informacoes_uteis)
+from tkinter import Tk,mainloop,Label
+from setings import HEIGHT,WIDTH
 
 
-keys_uteis = (
-    "maquina",
-    "nome_arquivo",
-    "dimensao",
-    "perfil_impressao",
-    "data_hora_inicio",
-)
+class Window:
+    def __init__(self) -> None:
+        self.__root = Tk()
+        # configurações da janela
+        self.__root.title("Gerenciador de LOG")
+        self.__root.geometry(f"{WIDTH}x{HEIGHT}")
+        self.__root.mainloop()
+        
 
-
-lista_principal = list()
-dict_temp = dict()
-
-conteudo = parse_html("RIPLOG.HTML")
-lista_impressao = organizar_impressao(conteudo)
-lista_impressao_limpa = informacoes_uteis(lista_impressao)
-
-for valores in lista_impressao_limpa:
-    for indice,valor in enumerate(valores):
-        chave = keys_uteis[indice]
-        # print(chave, valor)
-        dict_temp[chave] = None
-        # print(dict_temp.keys())
-    lista_principal.append(dict_temp)
-    dict_temp.clear()
-
-for valor in lista_impressao_limpa:
-    for i,v in enumerate(valor):
-        lista_impressao[i] =  v
-
-print(lista_principal)
+if __name__ == "__main__":
+    janela = Window()

@@ -1,0 +1,2 @@
+HEIGHT = 420
+WIDTH = 640

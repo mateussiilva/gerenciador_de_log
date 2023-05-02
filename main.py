@@ -14,7 +14,13 @@ def parse_html(file) -> list:
                 linhas.append(t)
     return linhas
 
-def create_log_txt(list_valores, name_file):    
+def create_log_txt(list_valores, name_file):   
+    """Essa função cria um arquivo contendo as informções passadas como um vetor
+        
+    :param lista_valores -> uma lista contendo informações a serem gravados no arquivo
+    :param name_file -> o nome do arquvio a ser criado
+    
+    """ 
     with open(name_file, "w") as file:
         for valores in list_valores:
             for linha in valores:
@@ -64,3 +70,4 @@ if __name__ == "__main__":
     conteudo = parse_html("RIPLOG.HTML")
     lista_impressao = organizar_impressao(conteudo)
     lista = informacoes_uteis(lista_impressao)
+    arquivo = create_log_txt(lista_impressao, "log.log")
