@@ -30,7 +30,6 @@ def remover_texto_inutil(text,padrao=";",char_remove=""):
 
 def criar_arquivo_txt(list_valores, name_file):   
     """Essa função cria um arquivo contendo as informções passadas como um vetor
-        
     :param lista_valores -> uma lista contendo informações a serem gravados no arquivo
     :param name_file -> o nome do arquvio a ser criado
     
@@ -40,16 +39,13 @@ def criar_arquivo_txt(list_valores, name_file):
             for linha in valores:
                 file.write(linha)
             file.write("\n\n")
-
         
 def organizar_impressao(lista_valores):
     lista_impressao = []
     temp = [] 
     for linha  in lista_valores:
         
-        texto = re.sub(PATTERN_HTML,"",linha)
-        
-        
+        texto = re.sub(PATTERN_HTML,"",linha)    
         texto_novo = f"{remover_texto_inutil(texto,char_remove='&nbsp')}"
         if not texto == "\n":
             temp.append(texto_novo)        
