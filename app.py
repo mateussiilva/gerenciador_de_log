@@ -1,15 +1,30 @@
-from tkinter import Tk,Label
+import PySimpleGUI as sg
 from setings import HEIGHT,WIDTH
 
+layout = [
+    [sg.Input(""),sg.Button("Buscar",key='-BUSCAR-')],
+    [sg.Multiline(s=(WIDTH,HEIGHT),key='-SAIDA-')],
+]
 
-class Window:
-    def __init__(self) -> None:
-        self.__root = Tk()
-        # configurações da janela
-        self.__root.title("Gerenciador de LOG")
-        self.__root.geometry(f"{WIDTH}x{HEIGHT}")
-        self.__root.mainloop()
-        
 
-if __name__ == "__main__":
-    janela = Window()
+window = sg.Window(" ", layout, size=(WIDTH,HEIGHT))
+
+while True:
+    events, value = window.read()
+    
+    if events == sg.WIN_CLOSED:
+        break
+    elif events == '-BUSCAR-':
+        with open("log.log",'r') as file:
+            
+            linhas = [
+                [linha] 
+                for linha in file.readlines()
+                if len(linha) > 1
+                ]
+        window['-SAIDA-'].update(linhas[:50])
+    else:
+        print(events)
+    
+    
+window.close()

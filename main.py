@@ -9,7 +9,6 @@ def parse_html(file) -> list:
     """ 
     Recebo uma uma arquivo, abro ele percorro cada linha dele identificando se o tamanho é diferente
     de 1 se for eu adiciono essa linha na minha lista e a retorno no final
-    
     para
     
     """
@@ -59,6 +58,6 @@ def organizar_impressao(lista_valores):
 
 if __name__ == "__main__":
     keys = ["nome_maquina","nome","ta"]
-    conteudo = parse_html("RIPLOG.HTML")
+    conteudo = parse_html("RIPLOG.txt")
     lista_impressao = organizar_impressao(conteudo)
     arquivo = criar_arquivo_txt(lista_impressao, "log.log")
