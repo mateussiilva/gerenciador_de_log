@@ -23,7 +23,7 @@ def parse_html(file) -> list:
 def remover_texto_inutil(text,padrao=";",char_remove=""):
     lista_texto = text.split(padrao)
     for valor in lista_texto:
-        if not valor.strip().lower() == char_remove:
+        if not valor.strip().lower() == char_remove and valor == "&nbsp;":
             return str(valor)
 
 
