@@ -3,3 +3,5 @@
 
 #IGNORANDO AQUIVOS HTML
 *.HTML
+
+.vscode
