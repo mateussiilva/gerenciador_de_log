@@ -4,4 +4,4 @@
 #IGNORANDO AQUIVOS HTML
 *.HTML
 
-.vscode
+.vscode/
