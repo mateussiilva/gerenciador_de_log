@@ -1,0 +1,45 @@
+<HEAD>
+
+<TITLE>
+
+RIP Log</TITLE>
+
+<style type=text/css>
+
+<!--
+
+h1 { font-family: arial,helvetica,microsoft san serif ; 
+
+
+     font-size:large; color:0066cc ; font-weight: bolder }
+
+
+th { font-family: arial,helvetica,microsoft san serif ; 
+
+
+     font-size:10pt; color:black; font-weight: bolder;
+
+
+		 align:left; background-color:white; border-color:000000; width:200px}
+
+
+table {border-width: 1;border-color: black;}
+
+
+table.tab1 {border-width: 4;border-color: red}
+
+
+td { font-family: arial,helvetica,microsoft san serif; font-size:normal}
+
+
+td.td1 { background-color:cccccc; align:left}
+
+
+td.td2 { border-color:000000; align:center}
+
+
+-->
+
+</style>
+
+</HEAD>
