@@ -4,4 +4,5 @@
 #IGNORANDO AQUIVOS HTML
 *.HTML
 
-.vscode/
+./vscode
+./__pycache__
