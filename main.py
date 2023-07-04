@@ -22,6 +22,15 @@ def get_linhas_for_array(name_file):
     return list_lines
 
 
+def palavra_dentro_de_frase(texto,palavra):
+    p = re.compile(fr"{palavra}") 
+    resultado = re.search(p,texto)
+    if resultado is None:
+        return None
+    else:
+        return True
+
+
 def remove_html(text):
     p = re.compile(r'<.*?>')
     return re.sub(p,"",text)
@@ -36,7 +45,7 @@ def separete_tables(vetor):
     for indice,linha in enumerate(vetor):
         texto = linha.rstrip("\n\n")
         texto_sem_html = remover_caracteres_inuteis(remove_html(texto))
-        if len(texto_sem_html) > 2:
+        if len(texto_sem_html):
             temp.append(texto_sem_html)
         if  texto == FIM_TABELA:
             lista_tabelas.append(temp[:])
@@ -55,19 +64,8 @@ def gravar_arquivo_log_principal(matrix,name_file):
     return arquivo
 
 
-def seprar_elementos_string(text,chars="&nbsp;"):
-    lista_linha = text.split(chars)
-    for indice,linha in enumerate(lista_linha):
-        return linha
-
 linhas_arquivo = get_linhas_for_array("RIPLOG.txt")
 lista_tabelas_separadas = separete_tables(linhas_arquivo)
 log_limpo = gravar_arquivo_log_principal(
     lista_tabelas_separadas,
     name_file="log_meio_limpo.log")
-
-
-# for tabelas in lista_tabelas_separadas:
-#     for tabela in tabelas:
-#         texto = seprar_elementos_string(tabela)
-#     print("-------------")

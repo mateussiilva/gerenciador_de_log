@@ -1,10 +1,26 @@
 
 
 import re 
+import pprint
 
+import main
 
-p = re.compile(r"||&nbsp;")
+def remove_incio_e_fim(lista):
+    try:
+        del lista[0]   # remover primeioro caractere
+        lista.pop()
+    except:
+        ...
 
-texto = '<TD class="td1" align=left> &nbsp; &nbsp;VJ-1604W (ValueJet)&nbsp; &nbsp;'
-resultado = re.sub(p,"",texto)
-print(resultado)
+arquivo = open("log_meio_limpo.log","r")
+tabelas = main.separete_tables(arquivo.readlines())
+print(tabelas)
+# lista_tuplas = [
+#     (indice,valor)
+#     for indice,valor in enumerate(lista_texto)
+# ]
+
+# dicionario = dict(lista_tuplas)
+# # print(lista_tuplas)
+# pprint.pprint(dicionario)
+# arquivo.close()
