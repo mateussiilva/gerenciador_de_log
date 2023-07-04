@@ -3,6 +3,7 @@
 
 #IGNORANDO AQUIVOS HTML
 *.HTML
+*.log
 
 .vscode/
 __pycache__/
