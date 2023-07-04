@@ -4,5 +4,6 @@
 #IGNORANDO AQUIVOS HTML
 *.HTML
 
-./vscode
-./__pycache__
+.vscode/
+__pycache__/
+venv/
