@@ -1,16 +1,10 @@
-
 import re
-
-
-# abrir arquivo e ler linhas 
+import copy
 elementos_inuteis = ("<!--\n","<style")
-
-
 INCIO_CSS = "<style type=text/css>"
 FIM_CSS = "</style>"
 INCIO_TABELA = '<TABLE class="tab1" border="1" cellpadding="0" cellspacing="0" summary="">'
 FIM_TABELA = '</TABLE>'
-
 
 def get_linhas_for_array(name_file):
     list_lines = []
@@ -64,8 +58,14 @@ def gravar_arquivo_log_principal(matrix,name_file):
     return arquivo
 
 
-linhas_arquivo = get_linhas_for_array("RIPLOG.txt")
-lista_tabelas_separadas = separete_tables(linhas_arquivo)
-log_limpo = gravar_arquivo_log_principal(
-    lista_tabelas_separadas,
-    name_file="log_meio_limpo.log")
+def gerar_dicionario(vetor):
+    return dict(vetor)
+
+
+def limpar_tamnho(valor_string):
+    texto = valor_string.rstrip(" in ").replace(",",".").strip(" ").split("x")
+    # return list(map(texto,lambda i: float(i)))
+    return [float(texto[0]),float(texto[1])]
+
+def converter_polegada_para_centimetro(lista):
+    return (lista[0] / 39.37 , lista[1] / 39.37)
