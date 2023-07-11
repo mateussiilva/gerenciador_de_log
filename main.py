@@ -1,5 +1,6 @@
 import re
 import copy
+import app
 elementos_inuteis = ("<!--\n","<style")
 INCIO_CSS = "<style type=text/css>"
 FIM_CSS = "</style>"
@@ -40,7 +41,8 @@ def separete_tables(vetor):
         texto = linha.rstrip("\n\n")
         texto_sem_html = remover_caracteres_inuteis(remove_html(texto))
         if len(texto_sem_html):
-            temp.append(texto_sem_html)
+            t = app.limpa_tabela_impressao(texto_sem_html)
+            temp.append(t)
         if  texto == FIM_TABELA:
             lista_tabelas.append(temp[:])
             temp.clear()
@@ -51,6 +53,7 @@ def gravar_arquivo_log_principal(matrix,name_file):
     arquivo = open(f"{name_file}","w+")
     for vetores in matrix:
         for linha in vetores:
+            # print(type(linha))
             texto_linha = linha + "\n"
             arquivo.write(texto_linha)
         arquivo.write("-------------------------\n")

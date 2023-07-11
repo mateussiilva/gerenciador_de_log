@@ -1,29 +1,25 @@
+from PyQt6.QtWidgets import QApplication, QMainWindow, QTextEdit
 import sys
-# from PyQt6.QtCore import QtCore
-# from PyQt6.QtGui import QtGui
-from PyQt6.QtWidgets import QLabel,QPushButton,QApplication,QMainWindow
- 
-# vamos criar uma classe que herda de QMainWindow
-class JanelaPrincipal(QMainWindow):
-  # construtor da classe
-  def __init__(self):
-    super().__init__()
-    self.setWindowTitle("Sistema de LOG")
-    self.setGeometry(0,0,600,500)
-     
-    # vamos criar um botão QPushButton
- 
-    # definimos este botão como o controle central
-    # da janela principal
-    # self.setCentralWidget(botao)
- 
-if __name__== "__main__":
-  # cria a aplicação
-  app = QApplication(sys.argv)
- 
-  # cria a janela principal e a coloca visível
-  janela_principal = JanelaPrincipal()
-  janela_principal.show()
- 
-  # executa a aplicação
-  app.exec()
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Exemplo de exibição de linhas de arquivo")
+        self.setGeometry(100, 100, 500, 300)
+
+        self.text_edit = QTextEdit(self)
+        self.setCentralWidget(self.text_edit)
+
+        self.load_file_content()
+
+    def load_file_content(self):
+        file_path = 'tex_log_limpo.txt'  # Substitua pelo caminho correto do arquivo
+        with open(file_path, 'r') as file:
+            content = file.read()
+            self.text_edit.setPlainText(content)
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())
